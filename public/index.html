@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>front-end</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.min.css">
+    <link rel="stylesheet" href="css/icons.min.css">
+
+    <link src="libs/datatables/dataTables.bootstrap4.css">
+    <link src="libs/datatables/responsive.bootstrap4.css">
+    <link src="libs/datatables/buttons.bootstrap4.css">
+    <link src="libs/datatables/select.bootstrap4.css">
+
+    <script src="js/app.min.js"></script>
+    <script src="js/vendor.min.js"></script>
+
+    <script src="libs/datatables/jquery.dataTables.js"></script>
+    <script src="libs/datatables/dataTables.bootstrap4.js"></script>
+    <script src="libs/datatables/dataTables.responsive.min.js"></script>
+    <script src="libs/datatables/responsive.bootstrap4.min.js"></script>
+    <script src="libs/datatables/dataTables.buttons.min.js"></script>
+
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but front-end doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script>
+      $(document).ready(function() {
+        $('#basic-datatable').DataTable();
+      });
+    </script>
+  </body>
+</html>
