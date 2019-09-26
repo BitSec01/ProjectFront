@@ -16,7 +16,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <table id="basic-datatable" class="table dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
-                  role="grid" aria-describedby="basic-datatable_info">
+                  role="grid" aria-describedby="basic-datatable_info" style="width:100%;">
                   <thead>
                     <tr role="row">
                       <th class="sorting_asc" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1"
