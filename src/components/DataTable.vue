@@ -62,7 +62,20 @@ import Axios from 'axios';
       },
       showModal(id) {
         event.preventDefault();
-        $('#studentModal').modal('show');
+
+        Axios.get('http://localhost:80/students/' + id).then((response) => {
+          console.info('Get request succeeded without errors');
+          console.log(response.data.data[0]);
+          this.selectedStudent = response.data.data[0];
+        }).catch((err) => {
+          console.warn(err);
+          alert('Error has occured check log');
+        }).finally(() => {
+          this.$emit('studentSelected', this.selectedStudent);
+          $('#studentModal').modal('show');
+        });
+
+
       }
     },
     created() {

@@ -19,11 +19,11 @@
         </div>
       </div>
 
-      <StudentsTable />
+      <StudentsTable @studentSelected="handleEmit"/>
 
     </div>
   </div>
-    <Modal/>
+    <Modal v-bind:student="student"/>
   </div>
 </template>
 
@@ -34,10 +34,20 @@ import Modal from '@/components/Modal';
 
 export default {
   name: 'Students',
+  data() {
+    return {
+      student: ''
+    }
+  },
   components: {
     TopNav,
     StudentsTable,
     Modal
+  },
+  methods: {
+    handleEmit(event) {
+      this.student = event;
+    }
   }
 }
 </script>

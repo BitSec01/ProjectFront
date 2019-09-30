@@ -9,7 +9,7 @@
             zoekbalk!
           </p>
 
-          <DataTable />
+          <DataTable @studentSelected="handleEmit"/>
 
         </div> <!-- end card body-->
       </div> <!-- end card -->
@@ -24,8 +24,19 @@
 
   export default {
     name: 'StudentsTable',
+    data() {
+      return {
+        studentSelected: ""
+      }
+    },
     components: {
       DataTable
+    },
+    methods: {
+      handleEmit(event) {
+        console.log('data after child handle: ', event) // get the data after child dealing
+        this.$emit('studentSelected', event);
+      }
     }
   }
 </script>

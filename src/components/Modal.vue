@@ -3,60 +3,105 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Modal Content is Responsive</h4>
+          <h4 class="modal-title">Student: {{ student.name }} {{ student.middlename }} {{ student.lastname }}</h4>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true" v-on:click="closeModal()">×</button>
         </div>
         <div class="modal-body p-4">
           <div class="row">
-            <div class="col-md-6">
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="class" class="control-label">Klas</label>
+                <input type="text" class="form-control" id="class" v-model="student.class">
+              </div>
+            </div>
+            <div class="col-md-3">
               <div class="form-group">
                 <label for="field-1" class="control-label">Name</label>
-                <input type="text" class="form-control" id="field-1" placeholder="John">
+                <input type="text" class="form-control" id="field-1" v-model="student.name">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="field-2" class="control-label">Middlename</label>
+                <input type="text" class="form-control" id="field-2" v-model="student.middlename">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="field-2" class="control-label">Lastname</label>
+                <input type="text" class="form-control" id="field-2" v-model="student.lastname">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="streetname" class="control-label">Straatnaam</label>
+                <input type="text" class="form-control" id="streetname" v-model="student.streetname">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label for="postalcode" class="control-label">Huisnummer</label>
+                <input type="text" class="form-control" id="postalcode" v-model="student.house_number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label for="city" class="control-label">Postcode</label>
+                <input type="text" class="form-control" id="city" v-model="student.postalcode">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="field-3" class="control-label">Plaats</label>
+                <input type="text" class="form-control" id="field-3" v-model="student.city">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group">
+                <label for="studentNumber" class="control-label">Studenten #</label>
+                <input type="text" class="form-control" id="studentNumber" v-model="student.student_number">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="phone" class="control-label">Telefoon</label>
+                <input type="text" class="form-control" id="phone" v-model="student.phone">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="field-2" class="control-label">Surname</label>
-                <input type="text" class="form-control" id="field-2" placeholder="Doe">
+                <label for="email" class="control-label">Email</label>
+                <input type="text" class="form-control" id="email" v-model="student.email">
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="field-3" class="control-label">Address</label>
-                <input type="text" class="form-control" id="field-3" placeholder="Address">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="field-4" class="control-label">City</label>
-                <input type="text" class="form-control" id="field-4" placeholder="Boston">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="field-5" class="control-label">Country</label>
-                <input type="text" class="form-control" id="field-5" placeholder="United States">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="field-6" class="control-label">Zip</label>
-                <input type="text" class="form-control" id="field-6" placeholder="123456">
-              </div>
-            </div>
-          </div>
+
           <div class="row">
             <div class="col-md-12">
               <div class="form-group no-margin">
-                <label for="field-7" class="control-label">Personal Info</label>
-                <textarea class="form-control" id="field-7" placeholder="Write something about yourself"></textarea>
+                <label for="field-7" class="control-label">Notitie</label>
+                <textarea class="form-control" id="field-7" v-model="student.note"></textarea>
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group no-margin">
+                <label for="field-7" class="control-label">Heeft Stageplek?</label><br/>
+                <span v-if="student.has_internship" class="badge badge-success">Ja</span>
+                <span v-else class="badge badge-danger">Nee</span>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal" v-on:click="closeModal()">Close</button>
@@ -70,6 +115,7 @@
 <script>
 export default {
   name: 'Modal',
+  props: ['student'],
   methods: {
     closeModal() {
       event.preventDefault();
@@ -78,3 +124,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.modal-dialog {
+  max-width: 900px;
+}
+.badge {
+  font-size: 14px;
+}
+</style>
