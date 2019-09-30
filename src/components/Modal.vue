@@ -1,11 +1,10 @@
 <template>
-  <div id="con-close-modal" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    style="display: block; padding-right: 17px;">
+  <div id="studentModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Modal Content is Responsive</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" v-on:click="closeModal()">×</button>
         </div>
         <div class="modal-body p-4">
           <div class="row">
@@ -60,10 +59,22 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal" v-on:click="closeModal()">Close</button>
           <button type="button" class="btn btn-info waves-effect waves-light">Save changes</button>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Modal',
+  methods: {
+    closeModal() {
+      event.preventDefault();
+      $('#studentModal').modal('hide');
+    }
+  }
+}
+</script>

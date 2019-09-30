@@ -4,7 +4,7 @@ import Axios from 'axios';
 
 import Index from './views/Index.vue';
 import Students from './views/Students.vue';
-
+ 
 Vue.prototype.$http = Axios;
 Vue.use(Router);
 

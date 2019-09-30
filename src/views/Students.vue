@@ -1,6 +1,6 @@
 <template>
   <div>
-  <Modal/>
+    <TopNav />
   <div class="wrapper">
     <div class="container-fluid">
       
@@ -23,18 +23,28 @@
 
     </div>
   </div>
-</div>
+    <Modal/>
+  </div>
 </template>
 
 <script>
+import TopNav from '@/components/TopNav';
 import StudentsTable from '@/components/StudentsTable';
 import Modal from '@/components/Modal';
 
 export default {
   name: 'Students',
   components: {
+    TopNav,
     StudentsTable,
     Modal
   }
 }
 </script>
+
+<style>
+  .modal-backdrop {
+    opacity: 0.7 !important;
+    background-color: black;
+  }
+</style>
