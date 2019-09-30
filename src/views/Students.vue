@@ -1,4 +1,6 @@
 <template>
+  <div>
+  <Modal/>
   <div class="wrapper">
     <div class="container-fluid">
       
@@ -21,15 +23,18 @@
 
     </div>
   </div>
+</div>
 </template>
 
 <script>
-import StudentsTable from '@/components/StudentsTable'
+import StudentsTable from '@/components/StudentsTable';
+import Modal from '@/components/Modal';
 
 export default {
   name: 'Students',
   components: {
-    StudentsTable
+    StudentsTable,
+    Modal
   }
 }
 </script>

@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import Axios from 'axios';
 
 import Index from './views/Index.vue';
-import Tables from './views/Tables.vue';
 import Students from './views/Students.vue';
 
 Vue.prototype.$http = Axios;
@@ -17,11 +16,6 @@ export default new Router({
       path: '/',
       name: 'index',
       component: Index
-    },
-    {
-      path: '/tables',
-      name: 'tables',
-      component: Tables
     },
     {
       path: '/students',

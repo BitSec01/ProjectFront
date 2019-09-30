@@ -77,7 +77,7 @@ export default {
   },
   mounted() {
     Axios.get("http://localhost:80/students").then(response => {
-      console.log(response.data.data);
+      console.log(response.data);
       this.students = [...response.data.data];
       $('#students-datatable').DataTable({
         data : this.students,
