@@ -19,7 +19,7 @@
           <span v-else class="badge badge-danger">Geen</span>
         </td>
         <td>
-          <a href="#custom-modal" class="btn btn-light btn-sm waves-effect" data-animation="blur" data-plugin="custommodal" data-overlaycolor="#38414a" v-on:click="showModal(row.id)">Show Me</a>
+          <a href="#custom-modal" class="btn btn-success text-dark btn-sm waves-effect" data-animation="blur" data-plugin="custommodal" data-overlaycolor="#38414a" v-on:click="showModal(row.id)"><i class="fe-edit"></i></a>
           <!-- <button type="button" class="btn btn-outline-success waves-effect waves-light" v-on:click="showModal(row.id)">Edit</button>-->
         </td>
       </tr>

@@ -67,7 +67,7 @@
                   <!-- item-->
                   <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <div class="notify-icon bg-primary">
-                      <i class="mdi mdi-comment-account-outline"></i>
+                      <i class="mdi mdi-square-edit-outline"></i>
                     </div>
                     <p class="notify-details">Caleb Flakelar commented on Admin
                       <small class="text-muted">1 min ago</small>
