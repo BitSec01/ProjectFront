@@ -4,6 +4,7 @@ import Axios from 'axios';
 
 import Index from './views/Index.vue';
 import Students from './views/Students.vue';
+import Login from './views/Login.vue';
  
 Vue.prototype.$http = Axios;
 Vue.use(Router);
@@ -21,6 +22,11 @@ export default new Router({
       path: '/students',
       name: 'students',
       component: Students
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 });
