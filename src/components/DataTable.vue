@@ -63,7 +63,7 @@ import Axios from 'axios';
       showModal(id) {
         event.preventDefault();
 
-        Axios.get('http://localhost:80/students/' + id).then((response) => {
+        Axios.get('http://localhost:80/student/' + id).then((response) => {
           console.info('Get request succeeded without errors');
           console.log(response.data.data[0]);
           this.selectedStudent = response.data.data[0];

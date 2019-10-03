@@ -105,7 +105,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal" v-on:click="closeModal()">Close</button>
-          <button type="button" class="btn btn-info waves-effect waves-light">Save changes</button>
+          <button type="button" class="btn btn-info waves-effect waves-light" v-on:click="SubmitModal()">Save changes</button>
         </div>
       </div>
     </div>
@@ -113,6 +113,7 @@
 </template>
 
 <script>
+import Axios from 'axios';
 export default {
   name: 'Modal',
   props: ['student'],
@@ -120,6 +121,28 @@ export default {
     closeModal() {
       event.preventDefault();
       $('#studentModal').modal('hide');
+    },
+    SubmitModal() {
+      console.log(this.student.id)
+      Axios.patch('http://localhost:80/student/' + this.student.id, {
+        name: this.student.name,
+        middlename: this.student.middlename,
+        lastname: this.student.lastname,
+        streetname: this.student.streetname,
+        house_number: this.student.house_number,
+        postalcode: this.student.postalcode,
+        city: this.student.city,
+        email: this.student.email,
+        student_number: this.student.student_number,
+        class: this.student.class
+      }).then((response) => {
+        console.log(this.student);
+        console.info('Student succesfully updated');
+        console.log(response.data);
+      }).catch((err) => {
+        console.warn(err);
+        alert('Error has occured check log');
+      })
     }
   }
 }
