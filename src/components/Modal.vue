@@ -142,7 +142,10 @@ export default {
       }).catch((err) => {
         console.warn(err);
         alert('Error has occured check log');
-      })
+      }).finally(() => {
+        $('#studentModal').modal('hide');
+        setTimeout("location.reload(true);", 1);
+      });
     }
   }
 }
