@@ -84,6 +84,16 @@
                 </li>
               </ul>
             </li>
+
+            <li class="has-submenu">
+              <a href="/contacts">
+                <i class="fe-users"></i>Contacten <div class="arrow-down"></div></a>
+              <ul class="submenu">
+                <li>
+                  <router-link to="/contacts"><i class="fe-briefcase"></i> Contacten lijst</router-link>
+                </li>
+              </ul>
+            </li>
           </ul>
           <!-- End navigation menu -->
 

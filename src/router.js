@@ -8,6 +8,7 @@ import Login from './views/Login.vue';
 import StudentMap from './views/StudentMap.vue';
 import Companies from './views/Companies.vue';
 import CompanyMap from './views/CompanyMap.vue';
+import Contacts from './views/Contacts.vue';
  
 Vue.prototype.$http = Axios;
 Vue.use(Router);
@@ -45,6 +46,11 @@ export default new Router({
       path: '/companies-map',
       name: 'Bedrijven Kaart',
       component: CompanyMap
+    },
+    {
+      path: '/contacts',
+      name: 'Contacten Lijst',
+      component: Contacts
     }
   ]
 });
