@@ -5,6 +5,9 @@ import Axios from 'axios';
 import Index from './views/Index.vue';
 import Students from './views/Students.vue';
 import Login from './views/Login.vue';
+import StudentMap from './views/StudentMap.vue';
+import Companies from './views/Companies.vue';
+import CompanyMap from './views/CompanyMap.vue';
  
 Vue.prototype.$http = Axios;
 Vue.use(Router);
@@ -20,13 +23,28 @@ export default new Router({
     },
     {
       path: '/students',
-      name: 'students',
+      name: 'Students',
       component: Students
     },
     {
       path: '/login',
-      name: 'login',
+      name: 'Login',
       component: Login
+    },
+    {
+      path: '/students-map',
+      name: 'Students Map',
+      component: StudentMap
+    },
+    {
+      path: '/companies',
+      name: 'Bedrijven Lijst',
+      component: Companies
+    },
+    {
+      path: '/companies-map',
+      name: 'Bedrijven Kaart',
+      component: CompanyMap
     }
   ]
 });
