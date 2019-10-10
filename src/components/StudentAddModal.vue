@@ -156,8 +156,8 @@ export default {
         console.warn(err);
         alert('Error has occured check log');
       }).finally(() => {
-        //$('#studentAddModal').modal('hide');
-        //setTimeout("location.reload(true);", 1);
+        $('#studentAddModal').modal('hide');
+        setTimeout("location.reload(true);", 1);
       });
     }
   }
