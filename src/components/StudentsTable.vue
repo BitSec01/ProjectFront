@@ -7,7 +7,8 @@
           <p class="text-muted font-13 mb-4">
             hier kun je alle studenten zien en managen. je kunt sorteren door op de column te klikken en zoeken met de
             zoekbalk!
-          </p>
+          </p><a href="#custom-modal" class="btn btn-success text-dark btn-sm waves-effect" data-animation="blur" data-plugin="custommodal" data-overlaycolor="#38414a" v-on:click="showStudentAddModal()"><i class="">Toevoegen</i></a>
+          
 
           <DataTable @studentSelected="handleEmit"/>
 
@@ -36,6 +37,9 @@
       handleEmit(event) {
         console.log('data after child handle: ', event) // get the data after child dealing
         this.$emit('studentSelected', event);
+      },
+      showStudentAddModal(){
+        $('#studentAddModal').modal('show');
       }
     }
   }
