@@ -19,8 +19,8 @@
           <span v-else class="badge badge-danger">Nee</span>
         </td>
         <td>
-          <a href="#custom-modal" class="btn btn-success text-dark btn-sm waves-effect" data-animation="blur" data-plugin="custommodal" data-overlaycolor="#38414a" v-on:click="showModal(row.id)"><i class="fe-edit"></i></a>
-          <!-- <button type="button" class="btn btn-outline-success waves-effect waves-light" v-on:click="showModal(row.id)">Edit</button>-->
+        <a href="#custom-modal" class="btn btn-success text-dark btn-sm waves-effect" data-animation="blur" data-plugin="custommodal" data-overlaycolor="#38414a" v-on:click="showModal(row.id)"><i class="fe-edit"></i></a>
+        <!-- <button type="button" class="btn btn-outline-success waves-effect waves-light" v-on:click="showModal(row.id)">Edit</button>-->
         </td>
       </tr>
     </tbody>
@@ -72,7 +72,7 @@ import Axios from 'axios';
           alert('Error has occured check log');
         }).finally(() => {
           this.$emit('companySelected', this.selectedCompany);
-          $('#companyModal').modal('show');
+          $('#CompanyEdit').modal('show');
         });
 
 

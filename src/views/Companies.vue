@@ -1,36 +1,38 @@
 <template>
   <div>
     <TopNav />
-  <div class="wrapper">
-    <div class="container-fluid">
-      
-      <div class="row">
-        <div class="col-12">
-          <div class="page-title-box">
-            <div class="page-title-right">
-              <ol class="breadcrumb m-0">
-                <li class="breadcrumb-item"><a href="javascript: void(0);">UBold</a></li>
-                <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                <li class="breadcrumb-item active">Datatables</li>
-              </ol>
+    <div class="wrapper">
+      <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-12">
+            <div class="page-title-box">
+              <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                  <li class="breadcrumb-item"><a href="javascript: void(0);">UBold</a></li>
+                  <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+                  <li class="breadcrumb-item active">Datatables</li>
+                </ol>
+              </div>
+              <h4 class="page-title">Datatables</h4>
             </div>
-            <h4 class="page-title">Datatables</h4>
           </div>
         </div>
+  
+        <CompanyTable @companySelected="handleEmit"/>
+  
       </div>
-
-      <CompanyTable @companySelected="handleEmit"/>
-
     </div>
-  </div>
-    <Modal v-bind:company="company"/>
+    <CompanyEditModal v-bind:company="company"/>
+    <CompanyAddModal v-bind:company="company"/>
   </div>
 </template>
 
 <script>
 import TopNav from '@/components/TopNav';
 import CompanyTable from '@/components/CompanyTable';
-import Modal from '@/components/Modal';
+import CompanyEditModal from '@/components/CompanyEditModal';
+import CompanyAddModal from '@/components/CompanyAddModal';
 
 export default {
   name: 'Company',
@@ -42,7 +44,8 @@ export default {
   components: {
     TopNav,
     CompanyTable,
-    Modal
+    CompanyEditModal,
+    CompanyAddModal
   },
   methods: {
     handleEmit(event) {

@@ -9,7 +9,8 @@
             zoekbalk!
           </p>
 
-          <DataTableCompany @companySelected="handleEmit"/>
+          <a href="#custom-modal" class="btn btn-success text-dark btn-sm waves-effect" data-animation="blur" data-plugin="custommodal" data-overlaycolor="#38414a" v-on:click="showModal()"><i class="">Toevoegen</i></a>
+         <DataTableCompany @companySelected="handleEmit"/>
 
         </div> <!-- end card body-->
       </div> <!-- end card -->
@@ -19,7 +20,6 @@
 </template>
 
 <script>
-  import Axios from "axios";
   import DataTableCompany from "@/components/DataTableCompany";
 
   export default {
@@ -36,6 +36,9 @@
       handleEmit(event) {
         console.log('data after child handle: ', event) // get the data after child dealing
         this.$emit('companySelected', event);
+      },
+      showModal(){
+        $('#companyAddModal').modal("show");
       }
     }
   }
