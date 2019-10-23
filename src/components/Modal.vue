@@ -106,6 +106,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal" v-on:click="closeModal()">Close</button>
           <button type="button" class="btn btn-info waves-effect waves-light" v-on:click="SubmitModal()">Save changes</button>
+          <button type="button" class="btn btn-danger waves-effect waves-light" v-on:click="Delete()">Delete this student</button>
         </div>
       </div>
     </div>
@@ -138,6 +139,19 @@ export default {
       }).then((response) => {
         console.log(this.student);
         console.info('Student succesfully updated');
+        console.log(response.data);
+      }).catch((err) => {
+        console.warn(err);
+        alert('Error has occured check log');
+      }).finally(() => {
+        $('#studentModal').modal('hide');
+        setTimeout("location.reload(true);", 1);
+      });
+    },
+    Delete() {
+      Axios.delete('http://localhost:80/student/' + this.student.id).then((response) => {
+        console.log(this.student);
+        console.info('Student succesfully deleted');
         console.log(response.data);
       }).catch((err) => {
         console.warn(err);

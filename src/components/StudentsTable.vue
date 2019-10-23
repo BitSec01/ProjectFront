@@ -8,10 +8,7 @@
             hier kun je alle studenten zien en managen. je kunt sorteren door op de column te klikken en zoeken met de
             zoekbalk!
           </p><a href="#custom-modal" class="btn btn-success text-dark btn-sm waves-effect" data-animation="blur" data-plugin="custommodal" data-overlaycolor="#38414a" v-on:click="showStudentAddModal()"><i class="">Toevoegen</i></a>
-          
-
           <DataTable @studentSelected="handleEmit"/>
-
         </div> <!-- end card body-->
       </div> <!-- end card -->
     </div><!-- end col-->

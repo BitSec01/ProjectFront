@@ -75,6 +75,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal" v-on:click="closeModal()">Close</button>
           <button type="button" class="btn btn-info waves-effect waves-light" v-on:click="SubmitModal()">Save changes</button>
+          <button type="button" class="btn btn-danger waves-effect waves-light" v-on:click="Delete()">Delete this company</button>
         </div>
       </div>
     </div>
@@ -111,6 +112,19 @@ export default {
         alert('Error has occured check log');
       }).finally(() => {
         $('#CompanyEdit').modal('hide');
+        setTimeout("location.reload(true);", 1);
+      });
+    },
+    Delete() {
+      Axios.delete('http://localhost:80/company/' + this.company.id).then((response) => {
+        console.log(this.company);
+        console.info('Student succesfully deleted');
+        console.log(response.data);
+      }).catch((err) => {
+        console.warn(err);
+        alert('Error has occured check log');
+      }).finally(() => {
+        $('#studentModal').modal('hide');
         setTimeout("location.reload(true);", 1);
       });
     }
