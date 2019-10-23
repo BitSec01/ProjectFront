@@ -5,6 +5,7 @@ import Axios from 'axios';
 import Index from './views/Index.vue';
 import Students from './views/Students.vue';
 import Login from './views/Login.vue';
+import Recoverpw from './views/Recoverpw.vue';
  
 Vue.prototype.$http = Axios;
 Vue.use(Router);
@@ -27,6 +28,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/recover',
+      name: 'recoverpw',
+      component: Recoverpw
     }
   ]
 });
