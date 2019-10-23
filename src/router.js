@@ -5,6 +5,7 @@ import Axios from 'axios';
 import Index from './views/Index.vue';
 import Students from './views/Students.vue';
 import Login from './views/Login.vue';
+import Register from './views/Register.vue';
 import Recoverpw from './views/Recoverpw.vue';
 
 import StudentMap from './views/StudentMap.vue';
@@ -33,6 +34,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     },
     {
       path: '/recover',
