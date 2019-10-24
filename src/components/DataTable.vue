@@ -48,7 +48,7 @@ import Axios from 'axios';
     },
     methods: {
       fetchData() {
-        Axios.get('http://localhost:80/student').then((response) => {
+        Axios.get('http://localhost:80/students').then((response) => {
           console.info('Get request succeeded without errors');
           console.log(response.data);
           this.rows = response.data.data;
