@@ -1,5 +1,5 @@
 <template>
-  <table id="contactTable" class="table dt-responsive nowrap dataTable no-footer dtr-inline collapsed" role="grid" style="width:100%">
+  <table id="companyTable" class="table dt-responsive nowrap dataTable no-footer dtr-inline collapsed" role="grid" style="width:100%">
     <thead>
       <tr>
         <th v-for="column in columns" :key="column.id" class="sorting">
@@ -57,7 +57,7 @@ import Axios from 'axios';
           alert('Error has occured check log');
         }).finally(() => {
           console.info('Get request has been made and executed.');
-          $('#conpanyTable').DataTable();
+          $('#companyTable').DataTable();
         });
       },
       showModal(id) {
