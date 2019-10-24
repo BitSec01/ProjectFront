@@ -8,7 +8,7 @@
             hier kun je alle contacten zien en managen. je kunt sorteren door op de column te klikken en zoeken met de
             zoekbalk!
           </p>
-
+          <a href="#custom-modal" class="btn btn-success text-dark btn-sm waves-effect" data-animation="blur" data-plugin="custommodal" data-overlaycolor="#38414a" v-on:click="showContactAddModal()"><i class="">Toevoegen</i></a>
           <DataTableContacts @contactSelected="handleEmit"/>
 
         </div> <!-- end card body-->
@@ -36,6 +36,9 @@
       handleEmit(event) {
         console.log('data after child handle: ', event) // get the data after child dealing
         this.$emit('contactSelected', event);
+      },
+      showContactAddModal(){
+        $('#contactAddModal').modal('show');
       }
     }
   }

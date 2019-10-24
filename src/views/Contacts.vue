@@ -17,6 +17,7 @@
       </div>
     </div>
     <ContactEditModal v-bind:contact="contact"/>
+    <ContactAddModal v-bind:contact="contact"/>
   </div>
 </template>
 
@@ -24,6 +25,7 @@
 import TopNav from '@/components/TopNav';
 import ContactsTable from '@/components/ContactsTable';
 import ContactEditModal from '@/components/ContactEditModal';
+import ContactAddModal from '@/components/ContactAddModal';
 
 export default {
   name: 'Contacts',
@@ -35,7 +37,8 @@ export default {
   components: {
     TopNav,
     ContactsTable,
-    ContactEditModal
+    ContactEditModal,
+    ContactAddModal
   },
   methods: {
     handleEmit(event) {
