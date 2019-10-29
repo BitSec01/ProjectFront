@@ -135,7 +135,10 @@ export default {
         city: this.student.city,
         email: this.student.email,
         student_number: this.student.student_number,
-        class: this.student.class
+        class: this.student.class,
+        note: this.student.note,
+        has_internship: this.student.has_internship,
+        phone: this.student.phone
       }).then((response) => {
         console.log(this.student);
         console.info('Student succesfully updated');

@@ -127,7 +127,10 @@ export default {
         city: '',
         email: '',
         student_number: '',
-        Klas: ''
+        Klas: '',
+        note: '',
+        has_internship: '',
+        phone: '',
       }
   },
   methods: {
@@ -147,7 +150,10 @@ export default {
         city: this.city,
         email: this.email,
         student_number: this.student_number,
-        class: this.Klas
+        class: this.Klas,
+        note: this.note,
+        has_internship: this.has_internship,
+        phone: this.phone
       }).then((response) => {
         console.log(this.student);
         console.info('Student succesfully Created');
