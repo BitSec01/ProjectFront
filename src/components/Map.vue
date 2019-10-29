@@ -1,6 +1,6 @@
 <template>
   <mapbox
-    access-token="pk.eyJ1IjoiYnB2LWFwcCIsImEiOiJjazFqOXJiaXEwZHdqM25tbnE1emc2dXphIn0.iBafqXjOL1j8O9UMiFiucw"
+    access-token="pk.eyJ1Ijoib3NzaWV3YXNzaWUiLCJhIjoiY2sxa3B1c3kzMDh3ZDNnbzNucW9xb29pNyJ9.9DLidkVmUWt7fUJKWHljOg"
     :map-options="{
       style: 'mapbox://styles/mapbox/dark-v9',
       center: [5.85278, 51.8425],
