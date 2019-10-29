@@ -63,10 +63,10 @@
 
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group no-margin">
+              <div class="form-group no-margin" v-on:click="ChangeSpecialNeeds">
                 <label for="field-7" class="control-label">Special needs possibility</label><br/>
-                <span v-if="special_needs" class="badge badge-success">Ja</span>
-                <span v-else class="badge badge-danger">Nee</span>
+                <span v-if="special_needs" class="badge badge-success" style="user-select:none;">Ja</span>
+                <span v-else class="badge badge-danger" style="user-select:none;">Nee</span>
               </div>
             </div>
           </div>
@@ -121,10 +121,18 @@ export default {
       }).catch((err) => {
         console.warn(err);
         alert('Error has occured check log');
-      })/*.finally(() => {
+      }).finally(() => {
         $('#companyAddModal').modal('hide');
         setTimeout("location.reload(true);", 1);
-      });*/
+      });
+    },
+    ChangeSpecialNeeds(event){
+      if(this.special_needs == false){
+        this.special_needs = true;
+      }
+      else{
+        this.special_needs = false;
+      }
     }
   }
 }

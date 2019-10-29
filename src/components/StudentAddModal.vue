@@ -94,10 +94,10 @@
 
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group no-margin">
+              <div class="form-group no-margin" v-on:click="ChangeInternship">
                 <label for="field-7" class="control-label">Heeft Stageplek?</label><br/>
-                <span v-if="has_internship" class="badge badge-success">Ja</span>
-                <span v-else class="badge badge-danger">Nee</span>
+                <span v-if="has_internship" class="badge badge-success" style="user-select:none;">Ja</span>
+                <span v-else class="badge badge-danger" style="user-select:none;">Nee</span>
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default {
         student_number: '',
         Klas: '',
         note: '',
-        has_internship: '',
+        has_internship: false,
         phone: '',
       }
   },
@@ -165,6 +165,14 @@ export default {
         $('#studentAddModal').modal('hide');
         setTimeout("location.reload(true);", 1);
       });
+    }, 
+    ChangeInternship(event){
+      if(this.has_internship == false){
+        this.has_internship = true;
+      }
+      else{
+        this.has_internship = false;
+      }
     }
   }
 }

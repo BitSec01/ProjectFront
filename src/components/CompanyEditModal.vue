@@ -63,10 +63,10 @@
 
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group no-margin">
+              <div class="form-group no-margin" v-on:click="ChangeSpecialNeeds">
                 <label for="field-7" class="control-label">Special needs possibility</label><br/>
-                <span v-if="company.special_needs" class="badge badge-success">Ja</span>
-                <span v-else class="badge badge-danger">Nee</span>
+                <span v-if="SpecialNeeds" class="badge badge-success" style="user-select:none;">Ja</span>
+                <span v-else class="badge badge-danger" style="user-select:none;">Nee</span>
               </div>
             </div>
           </div>
@@ -87,6 +87,11 @@ import Axios from 'axios';
 export default {
   name: 'Modal',
   props: ['company'],
+  data: function () {
+    return {
+      SpecialNeeds: this.company.special_needs
+    }
+  },
   methods: {
     closeModal() {
       event.preventDefault();
@@ -102,7 +107,7 @@ export default {
 				notes: this.company.notes,
         city: this.company.city,
 				last_contacted: this.company.last_contacted,
-				special_needs: this.company.special_needs
+				special_needs: this.SpecialNeeds
       }).then((response) => {
         console.log(this.student);
         console.info('Student succesfully updated');
@@ -127,6 +132,14 @@ export default {
         $('#studentModal').modal('hide');
         setTimeout("location.reload(true);", 1);
       });
+    },
+    ChangeSpecialNeeds(event){
+      if(this.SpecialNeeds == false){
+        this.SpecialNeeds = true;
+      }
+      else{
+        this.SpecialNeeds = false;
+      }
     }
   }
 }

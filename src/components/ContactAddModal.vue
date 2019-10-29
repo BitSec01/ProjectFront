@@ -61,10 +61,10 @@
 
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group no-margin">
+              <div class="form-group no-margin" v-on:click="ChangeIsSupervisor">
                 <label for="field-7" class="control-label">Is begeleider?</label><br/>
-                <span v-if="is_supervisor" class="badge badge-success">Ja</span>
-                <span v-else class="badge badge-danger">Nee</span>
+                <span v-if="is_supervisor" class="badge badge-success" style="user-select:none;">Ja</span>
+                <span v-else class="badge badge-danger" style="user-select:none;">Nee</span>
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@ export default {
         email: '',
         company_id: '',
         contacted_by: '',
-        is_supervisor: '',
+        is_supervisor: false,
         last_contacted: ''
       }
   },
@@ -121,6 +121,14 @@ export default {
         $('#contactModal').modal('hide');
         setTimeout("location.reload(true);", 1);
       });
+    },
+    ChangeIsSupervisor(event){
+      if(this.is_supervisor == false){
+        this.is_supervisor = true;
+      }
+      else{
+        this.is_supervisor = false;
+      }
     }
   }
 }

@@ -94,10 +94,10 @@
 
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group no-margin">
+              <div class="form-group no-margin" v-on:click="ChangeInternship">
                 <label for="field-7" class="control-label">Heeft Stageplek?</label><br/>
-                <span v-if="student.has_internship" class="badge badge-success">Ja</span>
-                <span v-else class="badge badge-danger">Nee</span>
+                <span v-if="HasInternship" class="badge badge-success" style="user-select:none;">Ja</span>
+                <span v-else class="badge badge-danger" style="user-select:none;">Nee</span>
               </div>
             </div>
           </div>
@@ -118,6 +118,11 @@ import Axios from 'axios';
 export default {
   name: 'Modal',
   props: ['student'],
+  data: function () {
+    return {
+      HasInternship: this.student.has_internship
+    }
+  },
   methods: {
     closeModal() {
       event.preventDefault();
@@ -137,7 +142,7 @@ export default {
         student_number: this.student.student_number,
         class: this.student.class,
         note: this.student.note,
-        has_internship: this.student.has_internship,
+        has_internship: this.HasInternship,
         phone: this.student.phone
       }).then((response) => {
         console.log(this.student);
@@ -163,6 +168,14 @@ export default {
         $('#studentModal').modal('hide');
         setTimeout("location.reload(true);", 1);
       });
+    }, 
+    ChangeInternship(event){
+      if(this.HasInternship == false){
+        this.HasInternship = true;
+      }
+      else{
+        this.HasInternship = false;
+      }
     }
   }
 }

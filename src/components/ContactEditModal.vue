@@ -61,10 +61,10 @@
 
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group no-margin">
+              <div class="form-group no-margin" v-on:click="ChangeIsSupervisor">
                 <label for="field-7" class="control-label">Is begeleider?</label><br/>
-                <span v-if="contact.is_supervisor" class="badge badge-success">Ja</span>
-                <span v-else class="badge badge-danger">Nee</span>
+                <span v-if="IsSupervisor" class="badge badge-success" style="user-select:none;">Ja</span>
+                <span v-else class="badge badge-danger" style="user-select:none;">Nee</span>
               </div>
             </div>
           </div>
@@ -85,6 +85,11 @@ import Axios from 'axios';
 export default {
   name: 'Modal',
   props: ['contact'],
+  data: function () {
+    return {
+      IsSupervisor: this.contact.is_supervisor
+    }
+  },
   methods: {
     closeModal() {
       event.preventDefault();
@@ -101,7 +106,7 @@ export default {
         company_id: this.contact.company_id,
         last_contacted: this.contact.last_contacted,
         contacted_by: this.contact.contacted_by,
-        is_supervisor: this.contact.is_supervisor
+        is_supervisor: this.IsSupervisor
       }).then((response) => {
         console.log(this.contact);
         console.info('Contact succesfully updated');
@@ -126,6 +131,14 @@ export default {
         $('#contactModal').modal('hide');
         setTimeout("location.reload(true);", 1);
       });
+    },
+    ChangeIsSupervisor(event){
+      if(this.IsSupervisor == false){
+        this.IsSupervisor = true;
+      }
+      else{
+        this.IsSupervisor = false;
+      }
     }
   }
 }
