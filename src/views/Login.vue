@@ -16,24 +16,24 @@
                                     <p class="text-muted mb-4 mt-3">Enter your email address and password to access admin panel.</p>
                                 </div>
 
-                                <form action="#">
+                                <form action="http://localhost:80/login" method="POST">
 
                                     <div class="form-group mb-3">
-                                        <label for="emailaddress">Email address</label>
-                                        <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                        <label for="username">Username</label>
+                                        <input class="form-control" type="username" id="username" name="username" placeholder="Enter your username">
                                     </div>
 
                                     <div class="form-group mb-3">
                                         <label for="password">Password</label>
-                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                        <input class="form-control" type="password" required="" id="password" name="password" placeholder="Enter your password">
                                     </div>
 
-                                    <div class="form-group mb-3">
+                                    <!-- <div class="form-group mb-3">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked>
                                             <label class="custom-control-label" for="checkbox-signin">Remember me</label>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="form-group mb-0 text-center">
                                         <button class="btn btn-primary btn-block" type="submit"> Log In </button>
@@ -66,11 +66,18 @@
 </template>
 
 <script>
-
+import Axios from 'axios';
   export default {
     name: 'login',
-    components: {
-      
+    methods: {
+      login() {
+        Axios.post('http://localhost:80/login', {
+            username: this.username,
+            password: this.password
+        }).catch((e) => {
+          console.error(e)
+        })
+      }
     }
   }
 </script>
