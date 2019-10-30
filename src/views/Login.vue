@@ -13,7 +13,7 @@
                                     <a href="index.html">
                                         <span><img src="assets/images/logo-light.png" alt="" height="22"></span>
                                     </a>
-                                    <p class="text-muted mb-4 mt-3">Enter your email address and password to access admin panel.</p>
+                                    <p class="text-muted mb-4 mt-3">Enter your username and Password to access admin panel.</p>
                                 </div>
 
                                 <form action="http://localhost:80/login" method="POST">
@@ -28,13 +28,6 @@
                                         <input class="form-control" type="password" required="" id="password" name="password" placeholder="Enter your password">
                                     </div>
 
-                                    <!-- <div class="form-group mb-3">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked>
-                                            <label class="custom-control-label" for="checkbox-signin">Remember me</label>
-                                        </div>
-                                    </div> -->
-
                                     <div class="form-group mb-0 text-center">
                                         <button class="btn btn-primary btn-block" type="submit"> Log In </button>
                                     </div>
@@ -47,7 +40,6 @@
 
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <p> <a href="/recover" class="text-white-50 ml-1">Forgot your password?</a></p>
                                 <p class="text-white-50">Don't have an account? <a href="/register" class="text-white ml-1"><b>Sign Up</b></a></p>
                             </div> <!-- end col -->
                         </div>

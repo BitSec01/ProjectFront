@@ -6,7 +6,6 @@ import Index from './views/Index.vue';
 import Students from './views/Students.vue';
 import Login from './views/Login.vue';
 import Register from './views/Register.vue';
-import Recoverpw from './views/Recoverpw.vue';
 
 import StudentMap from './views/StudentMap.vue';
 import Companies from './views/Companies.vue';
@@ -39,11 +38,6 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Register
-    },
-    {
-      path: '/recover',
-      name: 'recoverpw',
-      component: Recoverpw
     },
     {
       path: '/students-map',

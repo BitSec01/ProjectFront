@@ -22,19 +22,9 @@
                                         <input class="form-control" type="text" id="username" name="username" placeholder="Enter your name" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="emailaddress">Email address</label>
-                                        <input class="form-control" type="email" id="emailaddress" placeholder="Enter your email">
-                                    </div>
-                                    <div class="form-group">
                                         <label for="password">Password</label>
                                         <input class="form-control" type="password" required id="password" name="password" placeholder="Enter your password">
                                     </div>
-                                    <!-- <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="checkbox-signup">
-                                            <label class="custom-control-label" for="checkbox-signup">I accept <a href="javascript: void(0);" class="text-muted">Terms and Conditions</a></label>
-                                        </div>
-                                    </div> -->
                                     <div class="form-group mb-0 text-center">
                                         <button class="btn btn-success btn-block" type="submit"> Sign Up </button>
                                     </div>
