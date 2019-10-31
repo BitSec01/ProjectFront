@@ -44,6 +44,17 @@ export default {
                   icon: 'school',
                 },
               },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [5.928610, 51.787221],
+                },
+                properties: {
+                  title: 'Leerling',
+                  icon: 'bicycle',
+                },
+              },
             ],
           },
         },
