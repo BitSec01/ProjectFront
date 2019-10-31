@@ -15,7 +15,7 @@
         <td>{{ row.phone }}</td>
         <td>{{ row.email }}</td>
         <td>
-          <span v-if="row.has_internship" class="badge badge-success">Ja</span>
+          <span v-if="row.has_internship > 1" class="badge badge-success">Ja</span>
           <span v-else class="badge badge-danger">Geen</span>
         </td>
         <td>

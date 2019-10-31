@@ -94,10 +94,12 @@
 
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group no-margin" v-on:click="ChangeInternship">
-                <label for="field-7" class="control-label">Heeft Stageplek?</label><br/>
-                <span v-if="HasInternship" class="badge badge-success" style="user-select:none;">Ja</span>
-                <span v-else class="badge badge-danger" style="user-select:none;">Nee</span>
+              <div class="form-group">
+                <label for="email" class="control-label">Stageplek</label>
+                <select class="form-control" data-toggle="select2" v-model="student.has_internship">
+                  <option value = '-1'>Geen stage</option>
+                  <option v-for='row in rows' :value="row.id">{{row.name}} - {{row.city}}</option>
+                </select>
               </div>
             </div>
           </div>
@@ -120,16 +122,29 @@ export default {
   props: ['student'],
   data: function () {
     return {
+      rows: [],
       HasInternship: this.student.has_internship
     }
   },
   methods: {
+    fetchData() {
+      Axios.get('http://localhost:80/companies').then((response) => {
+        console.info('Get request succeeded without errors');
+        console.log(response.data);
+        this.rows = response.data.data;
+      }).catch((err) => {
+        console.warn(err);
+        alert('Error has occured check log');
+      }).finally(() => {
+        console.info('Get request has been made and executed.');
+        $('#studentTable').DataTable();
+      });
+    },
     closeModal() {
       event.preventDefault();
       $('#studentModal').modal('hide');
     },
     SubmitModal() {
-      console.log(this.student.id)
       Axios.patch('http://localhost:80/student/' + this.student.id, {
         name: this.student.name,
         middlename: this.student.middlename,
@@ -142,7 +157,7 @@ export default {
         student_number: this.student.student_number,
         class: this.student.class,
         note: this.student.note,
-        has_internship: this.HasInternship,
+        has_internship: this.student.has_internship,
         phone: this.student.phone
       }).then((response) => {
         console.log(this.student);
@@ -152,9 +167,15 @@ export default {
         console.warn(err);
         alert('Error has occured check log');
       }).finally(() => {
+        /*if(typeof this.Internship !== 'undefined' && this.HasInternship == true){
+          console.log('it is defined');
+        }//*/
         $('#studentModal').modal('hide');
         setTimeout("location.reload(true);", 1);
-      });
+      });//*/
+    },
+    SubmitInternship(){
+
     },
     Delete() {
       Axios.delete('http://localhost:80/student/' + this.student.id).then((response) => {
@@ -168,15 +189,10 @@ export default {
         $('#studentModal').modal('hide');
         setTimeout("location.reload(true);", 1);
       });
-    }, 
-    ChangeInternship(event){
-      if(this.HasInternship == false){
-        this.HasInternship = true;
-      }
-      else{
-        this.HasInternship = false;
-      }
     }
+  },
+  created() {
+    this.fetchData();
   }
 }
 </script>
